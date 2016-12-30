@@ -19,9 +19,17 @@
 						alert(gender);
 					}
 					
-					$( "input" ).on( "click", function() {
-						  $( "#log" ).html( $( "input:checked" ).val() + " is checked!" );
-						});
+					var skillsList =  $('input[name=skills]:checked');
+					var seleSkill = [];
+					$.each(skillsList,function(){
+						seleSkill.push($(this).val());
+					});
+					alert(seleSkill);
+					
+					
+					skillsList.each(function(x,y){
+						alert("index:"+x+",val:"+$(y).val());
+					});
 					
 					var country = $('#country').val();//d.getid(;'').val
 					alert('country:'+country);
