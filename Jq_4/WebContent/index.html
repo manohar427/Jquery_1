@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="jquery-3.1.1.min.js"></script>
+<script src="jquery.validate.min.js"></script>
+<script>
+	$.validator.setDefaults({
+		submitHandler : function() {
+			alert("submitted!");
+		}
+	});
+
+	$(document).ready(function() {
+		$("#form1").validate();
+		$("#selecttest").validate();
+	});
+</script>
+<style>
+.block {
+	display: block;
+}
+
+form .error {
+	color:blue;
+}
+
+form.cmxform label.error {
+	display: none;
+}
+</style>
+</head>
+<body>
+
+	<form class="cmxform" id="form1" method="get" action="">
+
+		<h1>Radio button and Check box validation</h1>
+		<table border="1">
+			<tr>
+				<td><b>Family:</b></td>
+				<td><input type="radio" id="family_single" value="s"
+					name="family" required>Single <input type="radio"
+					id="family_married" value="m" name="family">Married <input
+					type="radio" id="family_other" value="o" name="family">Other
+					<label for="family" class="error">Please select your family
+						status.</label></td>
+			</tr>
+
+			<tr>
+				<td><b>Terms and conditionds:</b></td>
+				<td><input type="checkbox" class="checkbox" id="agree"
+					name="agree" required> <label for="agree"
+					class="error block">Please agree to our policy!</label></td>
+			</tr>
+
+			<tr>
+				<td><b>Spam:</b></td>
+				<td><input type="checkbox" class="checkbox" id="spam_email"
+					value="email" name="spam[]" required minlength="2">Spam via
+					E-Mail <input type="checkbox" class="checkbox" id="spam_phone"
+					value="phone" name="spam[]">Spam via Phone <input
+					type="checkbox" class="checkbox" id="spam_mail" value="mail"
+					name="spam[]">Spam via Mail <label for="spam[]"
+					class="error">Please select at least two types of spam.</label></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input class="submit" type="submit"
+					value="Submit"></td>
+			</tr>
+
+		</table>
+
+	</form>
+	<form id="selecttest">
+		<h2>Single and multi select drop down validation</h2>
+
+
+		<table border="1">
+			<tr>
+				<td><b>Please select a Phone:</b></td>
+				<td><select id="jungle" name="jungle"
+					title="Please select a Phone" required>
+						<option value=""></option>
+						<option value="apple">Apple</option>
+						<option value="samsung">Samsung</option>
+						<option value="bb">BB</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td><b>Please select at least two fruits:</b></td>
+				<td><select id="fruit" name="fruit"
+					title="Please select at least two fruits" required minlength="2"
+					multiple="multiple">
+						<option value="b">Banana</option>
+						<option value="a">Apple</option>
+						<option value="g">Grape</option>
+						<option value="m">Mango</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td><b>Please select no more than two vergetables:</b></td>
+				<td><select id="vegetables" name="vegetables"
+					title="Please select no more than two vergetables" required
+					maxlength="2" multiple="multiple">
+						<option value="p">Potato</option>
+						<option value="t">Tomato</option>
+						<option value="s">Bringle</option>
+				</select></td>
+			</tr>
+
+
+			<tr>
+				<td><b>Please select at least two cars, but no more than
+						three:</b></td>
+				<td><select id="cars" name="cars"
+					title="Please select at least two cars, but no more than three"
+					required rangelength="[2,3]" multiple="multiple">
+						<option value="merc">Merc</option>
+						<option value="bmw">BMW</option>
+						<option value="polo">Polo</option>
+						<option value="skoda">Skoda</option>
+				</select></td>
+			</tr>
+
+		</table>
+
+		<p>
+			<input type="submit" value="Submit">
+		</p>
+	</form>
+</body>
+</html>
