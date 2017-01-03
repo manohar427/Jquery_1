@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>The jQuery Example</title>
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+         $(document).ready(function() {
+        	 $("#myTable").hide();
+            $("#driver").click(function(){				
+                 $.getJSON('http://services.groupkt.com/country/get/all', function(data) {
+                		 var items = [];
+                		  $.each( data.RestResponse.result, function( key, val ) {
+                		    items.push( "<tr>" );
+                		    items.push( "<td>"+ val.name + "</td>" );
+                		    items.push( "<td>"+ val.alpha2_code + "</td>" );
+                		    items.push( "<td>"+ val.alpha3_code + "</td>" );
+                		    items.push( "</tr>" );
+                		  });    	                   
+                		  $("#myTable").show();
+                        $("<tbody/>",{html:items.join( "" )}).appendTo("#myTable");
+               });
+            });
+         });
+      </script>
+</head>
+
+<body>
+
+
+ <br/>
+ <h1>Web service Call using Jquery</h1>
+ <input type="button" id="driver" value="Load Data" />
+  <table border="1" id="myTable" style="background-color:orange;">
+    <tr>
+      <td>Name</td>
+      <td>2 Char Name</td>
+      <td>3 Char Name</td>
+    </tr>
+  </table>
+
+	
+
+</body>
+
+</html>
