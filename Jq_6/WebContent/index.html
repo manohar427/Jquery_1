@@ -1,0 +1,39 @@
+<html>
+
+<head>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+
+<script type="text/javascript">
+
+         $(document).ready(function() {
+        	$(".target").toggle('slow');//hide the image 
+            $(".clickme").click(function(){
+            	$(".target").toggle('slow');//image will be shown
+            	 $(".log").toggle('slow');//text hide
+            });
+         });
+			
+      </script>
+
+<style>
+.clickme {
+	margin: 10px;
+	padding: 12px;
+	border: 2px solid #666;
+	width: 200px;
+	height: 50px;
+}
+</style>
+</head>
+
+<body>
+
+	<div class="clickme">Expad / Minmise Image</div>
+	<div class="target">
+		<img src="cf.png" alt="jQuery" width="100%" height="40%" />
+	</div>
+	<div class="log">****Image will display here *****</div>
+
+</body>
+
+</html>
