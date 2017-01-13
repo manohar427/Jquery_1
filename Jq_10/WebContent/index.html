@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script> 
+
+	$(document).ready(function() {
+		var jqxhr = $.ajax({
+			url : "http://services.groupkt.com/country/get/all"
+		}).done(function(data) {
+			alert("Success: " + JSON.stringify(data));
+		}).fail(function(gggg) {
+			alert("Error:"+JSON.stringify(gggg));
+		});
+	});
+</script>
+</head>
+<body>ok
+</body>
+</html>
